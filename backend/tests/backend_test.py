@@ -1,9 +1,9 @@
-"""Backend API tests for MVELO Trading Enterprise."""
+"""Backend API tests for Ray Driving School."""
 import os
 import pytest
 import requests
 
-BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://mvelo-soweto.preview.emergentagent.com").rstrip("/")
+BASE_URL = os.environ.get("REACT_APP_BACKEND_URL").rstrip("/")
 API = f"{BASE_URL}/api"
 
 
@@ -30,80 +30,84 @@ class TestBusiness:
         r = client.get(f"{API}/business")
         assert r.status_code == 200
         data = r.json()
-        assert data["name"] == "MVELO TRADING ENTERPRISE"
-        assert data["rating"] == 4.6
-        assert data["reviews_count"] == 18
-        assert "Mohlomi Street" in data["address"]
-        assert "Naledi" in data["address"]
-        assert "Soweto" in data["address"]
-        assert data["phone"] == "065 805 1448"
+        assert data["name"] == "Ray Driving School"
+        assert data["phone"] == "073 403 7108"
+        assert "1 Goldman Street" in data["address"]
+        assert "Florida" in data["address"]
+        assert "Roodepoort" in data["address"]
         assert isinstance(data["services"], list)
-        assert len(data["services"]) == 17
+        assert len(data["services"]) == 9, f"Expected 9 services, got {len(data['services'])}"
+        assert isinstance(data["hours"], list)
+        assert len(data["hours"]) == 3
         assert "_id" not in data
 
 
-# ===== Quotes =====
-class TestQuotes:
-    def test_create_quote_valid(self, client):
+# ===== Lessons =====
+class TestLessons:
+    def test_create_lesson_full(self, client):
         payload = {
-            "name": "TEST_John Doe",
-            "phone": "0612345678",
-            "service": "Tile installation",
-            "location": "Soweto",
-            "message": "Need urgent tile installation",
-            "email": "test_john@example.com",
+            "name": "TEST_Lerato Dlamini",
+            "phone": "0734037108",
+            "email": "test_lerato@example.com",
+            "licence_type": "Learner's Licence Training",
+            "preferred_days": "Saturday Morning",
+            "experience_level": "Complete beginner",
+            "message": "I'm a complete beginner.",
         }
-        r = client.post(f"{API}/quotes", json=payload)
+        r = client.post(f"{API}/lessons", json=payload)
         assert r.status_code == 201, r.text
         data = r.json()
-        assert "id" in data
-        assert isinstance(data["id"], str) and len(data["id"]) > 0
+        assert "id" in data and isinstance(data["id"], str) and len(data["id"]) > 0
         assert data["name"] == payload["name"]
         assert data["phone"] == payload["phone"]
-        assert data["service"] == payload["service"]
+        assert data["licence_type"] == payload["licence_type"]
+        assert data["preferred_days"] == payload["preferred_days"]
+        assert data["experience_level"] == payload["experience_level"]
         assert data["status"] == "new"
         assert "_id" not in data
-        # persistence verification via GET
-        list_r = client.get(f"{API}/quotes")
+
+        # persistence check
+        list_r = client.get(f"{API}/lessons")
         assert list_r.status_code == 200
         items = list_r.json()
-        assert any(q["id"] == data["id"] for q in items)
+        assert any(l["id"] == data["id"] for l in items)
 
-    def test_create_quote_minimal_required(self, client):
+    def test_create_lesson_minimal(self, client):
         payload = {
-            "name": "TEST_Mini",
-            "phone": "0658051448",
-            "service": "Painting services",
+            "name": "TEST_Min",
+            "phone": "0612345678",
+            "licence_type": "Defensive Driving",
         }
-        r = client.post(f"{API}/quotes", json=payload)
-        assert r.status_code == 201
+        r = client.post(f"{API}/lessons", json=payload)
+        assert r.status_code == 201, r.text
         d = r.json()
-        assert d["name"] == "TEST_Mini"
+        assert d["name"] == "TEST_Min"
         assert d["email"] is None
-        assert d["location"] is None
+        assert d["preferred_days"] is None
+        assert d["experience_level"] is None
         assert "_id" not in d
 
-    def test_create_quote_missing_required(self, client):
-        # missing service
-        r = client.post(f"{API}/quotes", json={"name": "X", "phone": "0612345678"})
+    def test_create_lesson_missing_name(self, client):
+        r = client.post(f"{API}/lessons", json={"phone": "0612345678", "licence_type": "X"})
         assert r.status_code == 422
 
-    def test_create_quote_missing_name(self, client):
-        r = client.post(f"{API}/quotes", json={"phone": "0612345678", "service": "Painting services"})
+    def test_create_lesson_missing_phone(self, client):
+        r = client.post(f"{API}/lessons", json={"name": "TEST_X", "licence_type": "X"})
         assert r.status_code == 422
 
-    def test_create_quote_invalid_email(self, client):
-        payload = {
-            "name": "TEST_BadEmail",
-            "phone": "0612345678",
-            "service": "Painting services",
-            "email": "not-an-email",
-        }
-        r = client.post(f"{API}/quotes", json=payload)
+    def test_create_lesson_missing_licence_type(self, client):
+        r = client.post(f"{API}/lessons", json={"name": "TEST_X", "phone": "0612345678"})
         assert r.status_code == 422
 
-    def test_list_quotes_no_id_leak(self, client):
-        r = client.get(f"{API}/quotes")
+    def test_create_lesson_invalid_email(self, client):
+        r = client.post(
+            f"{API}/lessons",
+            json={"name": "TEST_X", "phone": "0612345678", "licence_type": "X", "email": "not-email"},
+        )
+        assert r.status_code == 422
+
+    def test_list_lessons_no_id_leak(self, client):
+        r = client.get(f"{API}/lessons")
         assert r.status_code == 200
         data = r.json()
         assert isinstance(data, list)
@@ -112,7 +116,7 @@ class TestQuotes:
             assert "id" in item
             assert "name" in item
             assert "phone" in item
-            assert "service" in item
+            assert "licence_type" in item
 
 
 # ===== Contact =====
@@ -120,7 +124,7 @@ class TestContact:
     def test_create_contact_valid(self, client):
         payload = {
             "name": "TEST_Contact",
-            "message": "Hello, I'd like more info.",
+            "message": "Hello, I'd like info.",
             "phone": "0612345678",
             "email": "test_contact@example.com",
         }
@@ -131,7 +135,7 @@ class TestContact:
         assert data["name"] == "TEST_Contact"
         assert data["message"] == payload["message"]
         assert "_id" not in data
-        # persistence
+
         list_r = client.get(f"{API}/contact")
         assert list_r.status_code == 200
         assert any(m["id"] == data["id"] for m in list_r.json())
@@ -145,6 +149,10 @@ class TestContact:
 
     def test_create_contact_missing_message(self, client):
         r = client.post(f"{API}/contact", json={"name": "TEST_C3"})
+        assert r.status_code == 422
+
+    def test_create_contact_missing_name(self, client):
+        r = client.post(f"{API}/contact", json={"message": "hi"})
         assert r.status_code == 422
 
     def test_list_contact_no_id_leak(self, client):

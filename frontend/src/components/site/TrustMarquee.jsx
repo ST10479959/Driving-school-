@@ -2,30 +2,26 @@ import { BUSINESS } from "@/lib/constants";
 
 export const TrustMarquee = () => {
   const items = [
-    `RELIABLE WORKMANSHIP`,
-    `4.6★ RATED`,
-    `BASED IN NALEDI, SOWETO`,
-    `17 SPECIALIST SERVICES`,
-    `AFFORDABLE QUOTES`,
-    `${BUSINESS.phone}`,
-    `WHATSAPP READY`,
+    "ONE-ON-ONE LESSONS",
+    "DUAL-CONTROLLED CAR",
+    "TEST PREP & BOOKING",
+    "PATIENT INSTRUCTORS",
+    "FLEXIBLE SCHEDULES",
+    "ROODEPOORT BASED",
+    `CALL ${BUSINESS.phone}`,
   ];
-  // duplicate to enable seamless loop
   const all = [...items, ...items];
 
   return (
-    <div
-      data-testid="trust-marquee"
-      className="bg-yellow-400 text-neutral-950 border-y border-neutral-950/10 overflow-hidden"
-    >
+    <div data-testid="trust-marquee" className="bg-[#0a0a0a] text-[#FFD600] border-y-2 border-[#0a0a0a] overflow-hidden">
       <div className="marquee-track flex whitespace-nowrap py-4">
         {all.map((it, i) => (
           <span
             key={i}
-            className="font-display font-black uppercase tracking-tighter text-sm sm:text-base mx-6 inline-flex items-center"
+            className="font-display font-black uppercase tracking-tight text-sm sm:text-base mx-6 inline-flex items-center"
           >
             {it}
-            <span className="mx-6 inline-block w-1.5 h-1.5 bg-neutral-950" aria-hidden="true" />
+            <span className="mx-6 inline-block w-2 h-2 bg-[#FFD600] rotate-45" aria-hidden="true" />
           </span>
         ))}
       </div>

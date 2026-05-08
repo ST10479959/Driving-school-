@@ -3,88 +3,85 @@ import { SERVICES } from "@/lib/constants";
 
 export const Services = () => {
   return (
-    <section
-      id="services"
-      data-testid="services-section"
-      className="bg-neutral-50 py-24 lg:py-32"
-    >
+    <section id="services" data-testid="services-section" className="py-24 lg:py-32 bg-[#fafafa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-20">
-          <div className="lg:col-span-5">
-            <p className="font-body text-xs uppercase tracking-[0.3em] text-neutral-500 mb-4">
-              / 01 — Services
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
+          <div className="lg:col-span-6">
+            <p className="font-body text-xs uppercase tracking-[0.3em] text-[#0a0a0a] font-bold mb-4">
+              / What we teach
             </p>
             <h2
               data-testid="services-heading"
-              className="font-display font-black uppercase text-neutral-950 tracking-tighter text-4xl sm:text-5xl lg:text-6xl leading-[0.95]"
+              className="font-display font-black uppercase text-[#0a0a0a] tracking-tighter text-4xl sm:text-5xl lg:text-6xl leading-[0.95]"
             >
-              Seventeen ways
+              From your first
               <br />
-              we build & fix.
+              <span className="bg-[#FFD600] border-2 border-[#0a0a0a] px-3 inline-block">
+                K53 page
+              </span>
+              <br />
+              to your test pass.
             </h2>
           </div>
-          <div className="lg:col-span-6 lg:col-start-7 flex items-end">
-            <p className="font-body text-base lg:text-lg text-neutral-600 leading-relaxed">
-              From a single TV mount to a full house build — every project is
-              delivered with the same standard of reliable, affordable and
-              high-quality workmanship.
+          <div className="lg:col-span-5 lg:col-start-8 flex items-end">
+            <p className="font-body text-base lg:text-lg text-[#4a4a4a] leading-relaxed">
+              Whether you've never sat behind a wheel or you're polishing the
+              final test routes, we have a lesson plan for you. Manual or
+              automatic. Code 8 or learner's. Always one-on-one.
             </p>
           </div>
         </div>
 
-        {/* Grid borders technique */}
-        <div
-          data-testid="services-grid"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-neutral-200 border border-neutral-200"
-        >
+        {/* Bento grid - 2 featured large + smaller cards */}
+        <div data-testid="services-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {SERVICES.map((s, idx) => {
             const Icon = s.icon;
+            const featured = s.featured;
             return (
               <a
                 key={s.name}
-                href="#quote"
+                href="#book"
                 data-testid={`service-card-${idx}`}
-                className="group relative bg-white p-6 lg:p-8 hover:bg-neutral-950 transition-colors duration-300 flex flex-col justify-between min-h-[180px] lg:min-h-[220px]"
+                className={`group relative border-2 border-[#0a0a0a] shadow-brutal hover-lift transition-all p-7 lg:p-8 flex flex-col justify-between ${
+                  featured
+                    ? "bg-[#FFD600] md:col-span-2 lg:col-span-1 lg:row-span-1 min-h-[260px]"
+                    : "bg-white min-h-[220px]"
+                }`}
               >
                 <div className="flex items-start justify-between">
-                  <div className="w-12 h-12 flex items-center justify-center border border-neutral-200 group-hover:border-yellow-400 group-hover:bg-yellow-400 transition-colors">
-                    <Icon
-                      className="w-5 h-5 text-neutral-950 group-hover:text-neutral-950"
-                      strokeWidth={2}
-                    />
+                  <div
+                    className={`w-12 h-12 flex items-center justify-center border-2 border-[#0a0a0a] ${
+                      featured ? "bg-white" : "bg-[#FFD600]"
+                    }`}
+                  >
+                    <Icon className="w-5 h-5 text-[#0a0a0a]" strokeWidth={2.5} />
                   </div>
-                  <span className="font-display text-xs font-bold text-neutral-300 group-hover:text-yellow-400 transition-colors">
+                  <span className="font-display font-black text-xs text-[#0a0a0a]/40">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <div>
-                  <h3 className="font-display font-bold text-neutral-950 group-hover:text-white text-lg lg:text-xl leading-tight tracking-tight transition-colors">
+                <div className="mt-6">
+                  <p className="font-body text-[11px] uppercase tracking-[0.2em] font-bold text-[#0a0a0a]/70 mb-2">
+                    {s.short}
+                  </p>
+                  <h3
+                    className={`font-display font-bold text-[#0a0a0a] tracking-tight leading-tight ${
+                      featured ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl"
+                    }`}
+                  >
                     {s.name}
                   </h3>
-                  <p className="mt-2 font-body text-sm text-neutral-500 group-hover:text-neutral-300 leading-relaxed transition-colors line-clamp-2">
+                  <p className="mt-3 font-body text-sm text-[#0a0a0a]/75 leading-relaxed">
                     {s.desc}
                   </p>
-                  <div className="mt-4 inline-flex items-center gap-1 font-body text-[11px] uppercase tracking-widest font-bold text-neutral-400 group-hover:text-yellow-400 transition-colors">
-                    Get Quote
-                    <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="mt-5 inline-flex items-center gap-1 font-body text-[11px] uppercase tracking-widest font-bold text-[#0a0a0a]">
+                    Book This Lesson
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" strokeWidth={2.5} />
                   </div>
                 </div>
               </a>
             );
           })}
-          {/* Filler cell to keep grid neat at 4 cols (17 % 4 = 1; need 3 fillers on xl) */}
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div
-              key={`filler-${i}`}
-              aria-hidden="true"
-              className="hidden xl:flex bg-white p-8 items-end"
-            >
-              <span className="font-display text-xs uppercase tracking-widest text-neutral-300">
-                {i === 2 ? "+ More on request" : ""}
-              </span>
-            </div>
-          ))}
         </div>
       </div>
     </section>

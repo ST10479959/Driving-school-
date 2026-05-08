@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -14,15 +14,11 @@ from datetime import datetime, timezone
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# MongoDB connection
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Create the main app without a prefix
-app = FastAPI(title="MVELO Trading Enterprise API")
-
-# Create a router with the /api prefix
+app = FastAPI(title="Ray Driving School API")
 api_router = APIRouter(prefix="/api")
 
 
@@ -38,23 +34,25 @@ class StatusCheckCreate(BaseModel):
     client_name: str
 
 
-class QuoteRequestCreate(BaseModel):
+class LessonBookingCreate(BaseModel):
     name: str = Field(min_length=1, max_length=120)
     phone: str = Field(min_length=5, max_length=30)
     email: Optional[EmailStr] = None
-    service: str = Field(min_length=1, max_length=120)
-    location: Optional[str] = Field(default=None, max_length=200)
+    licence_type: str = Field(min_length=1, max_length=80)
+    preferred_days: Optional[str] = Field(default=None, max_length=200)
+    experience_level: Optional[str] = Field(default=None, max_length=80)
     message: Optional[str] = Field(default=None, max_length=2000)
 
 
-class QuoteRequest(BaseModel):
+class LessonBooking(BaseModel):
     model_config = ConfigDict(extra="ignore")
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
     phone: str
     email: Optional[str] = None
-    service: str
-    location: Optional[str] = None
+    licence_type: str
+    preferred_days: Optional[str] = None
+    experience_level: Optional[str] = None
     message: Optional[str] = None
     status: str = "new"
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
@@ -79,67 +77,61 @@ class ContactMessage(BaseModel):
 
 # ===== Static business data =====
 BUSINESS_INFO = {
-    "name": "MVELO TRADING ENTERPRISE",
-    "tagline": "Reliable. Affordable. High-Quality Workmanship.",
-    "rating": 4.6,
-    "reviews_count": 18,
-    "address": "Mohlomi Street, Naledi, Soweto, 1865",
-    "phone": "065 805 1448",
-    "whatsapp": "+27658051448",
+    "name": "Ray Driving School",
+    "tagline": "Patient instruction. Confident drivers. Real results.",
+    "address": "1 Goldman Street, Florida, Roodepoort, Gauteng, South Africa",
+    "phone": "073 403 7108",
+    "phone_tel": "+27734037108",
+    "whatsapp": "+27734037108",
+    "hours": [
+        {"day": "Monday – Friday", "open": "08:00", "close": "17:00"},
+        {"day": "Saturday", "open": "08:30", "close": "14:00"},
+        {"day": "Sunday", "open": "Closed", "close": ""},
+    ],
     "services": [
-        "Floor fitting",
-        "Flooring repairs",
-        "TV mounting",
-        "Tile installation",
-        "Architectural plans",
-        "Building design",
-        "Building materials supply",
-        "Construction projects",
-        "Interior design & decoration",
-        "Electrical installations & maintenance",
-        "Electrical repairs",
-        "Heating systems",
-        "Home improvements",
-        "House plans",
-        "House renovations",
-        "Painting services",
-        "Paving work",
+        "Learner's licence training",
+        "Driver's licence lessons (Code 8)",
+        "One-on-one instruction",
+        "Defensive driving",
+        "Road safety awareness",
+        "Confidence building",
+        "Licence test preparation",
+        "Driving test booking assistance",
+        "Vehicle rental for testing",
+    ],
+    "promises": [
+        "Patient, experienced & professional instructors",
+        "Dual-controlled vehicles for safe training",
+        "Flexible weekday & Saturday scheduling",
+        "Friendly, affordable & reliable service",
     ],
 }
 
 
 # ===== Helpers =====
 def _serialize_doc(doc: dict) -> dict:
-    """Ensure datetime fields are ISO strings for MongoDB storage."""
     out = {}
     for k, v in doc.items():
-        if isinstance(v, datetime):
-            out[k] = v.isoformat()
-        else:
-            out[k] = v
+        out[k] = v.isoformat() if isinstance(v, datetime) else v
     return out
 
 
 def _deserialize_doc(doc: dict) -> dict:
     if not doc:
         return doc
-    if "created_at" in doc and isinstance(doc["created_at"], str):
-        try:
-            doc["created_at"] = datetime.fromisoformat(doc["created_at"])
-        except ValueError:
-            pass
-    if "timestamp" in doc and isinstance(doc["timestamp"], str):
-        try:
-            doc["timestamp"] = datetime.fromisoformat(doc["timestamp"])
-        except ValueError:
-            pass
+    for key in ("created_at", "timestamp"):
+        if key in doc and isinstance(doc[key], str):
+            try:
+                doc[key] = datetime.fromisoformat(doc[key])
+            except ValueError:
+                pass
     return doc
 
 
 # ===== Routes =====
 @api_router.get("/")
 async def root():
-    return {"message": "MVELO Trading Enterprise API", "status": "ok"}
+    return {"message": "Ray Driving School API", "status": "ok"}
 
 
 @api_router.get("/business")
@@ -149,9 +141,9 @@ async def get_business():
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
-    status_obj = StatusCheck(**input.model_dump())
-    await db.status_checks.insert_one(_serialize_doc(status_obj.model_dump()))
-    return status_obj
+    obj = StatusCheck(**input.model_dump())
+    await db.status_checks.insert_one(_serialize_doc(obj.model_dump()))
+    return obj
 
 
 @api_router.get("/status", response_model=List[StatusCheck])
@@ -160,19 +152,16 @@ async def get_status_checks():
     return [_deserialize_doc(d) for d in docs]
 
 
-@api_router.post("/quotes", response_model=QuoteRequest, status_code=201)
-async def create_quote(payload: QuoteRequestCreate):
-    if payload.service not in BUSINESS_INFO["services"]:
-        # Allow free-text but normalize
-        pass
-    quote = QuoteRequest(**payload.model_dump())
-    await db.quote_requests.insert_one(_serialize_doc(quote.model_dump()))
-    return quote
+@api_router.post("/lessons", response_model=LessonBooking, status_code=201)
+async def create_lesson_booking(payload: LessonBookingCreate):
+    booking = LessonBooking(**payload.model_dump())
+    await db.lesson_bookings.insert_one(_serialize_doc(booking.model_dump()))
+    return booking
 
 
-@api_router.get("/quotes", response_model=List[QuoteRequest])
-async def list_quotes():
-    docs = await db.quote_requests.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
+@api_router.get("/lessons", response_model=List[LessonBooking])
+async def list_lesson_bookings():
+    docs = await db.lesson_bookings.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
     return [_deserialize_doc(d) for d in docs]
 
 
@@ -189,7 +178,6 @@ async def list_contact():
     return [_deserialize_doc(d) for d in docs]
 
 
-# Include the router in the main app
 app.include_router(api_router)
 
 app.add_middleware(
@@ -200,10 +188,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 

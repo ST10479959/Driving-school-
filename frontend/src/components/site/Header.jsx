@@ -3,10 +3,10 @@ import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 
 const NAV_LINKS = [
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#gallery", label: "Work" },
-  { href: "#reviews", label: "Reviews" },
+  { href: "#services", label: "Lessons" },
+  { href: "#why", label: "Why Us" },
+  { href: "#hours", label: "Hours" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -23,73 +23,67 @@ export const Header = () => {
   return (
     <header
       data-testid="site-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white border-b border-neutral-200"
-          : "bg-white/90 backdrop-blur border-b border-neutral-200/60"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all bg-white border-b-2 border-[#0a0a0a] ${
+        scrolled ? "shadow-[0_4px_0_0_rgba(255,214,0,1)]" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
           <a
             href="#top"
             data-testid="logo-link"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3"
           >
-            <div className="w-9 h-9 lg:w-10 lg:h-10 bg-yellow-400 flex items-center justify-center">
-              <span className="font-display font-black text-neutral-950 text-lg">
-                M
+            <div className="w-10 h-10 lg:w-11 lg:h-11 bg-[#FFD600] border-2 border-[#0a0a0a] flex items-center justify-center shadow-brutal-sm">
+              <span className="font-display font-black text-[#0a0a0a] text-lg leading-none">
+                R
               </span>
             </div>
             <div className="leading-none">
-              <div className="font-display font-black text-neutral-950 tracking-tighter text-base lg:text-lg uppercase">
-                {BUSINESS.shortName}
+              <div className="font-display font-black text-[#0a0a0a] tracking-tight text-base lg:text-lg uppercase">
+                Ray Driving
               </div>
-              <div className="font-body text-[10px] lg:text-[11px] tracking-widest uppercase text-neutral-500">
-                Trading Enterprise
+              <div className="font-body text-[10px] lg:text-[11px] tracking-[0.25em] uppercase text-[#0a0a0a]/60 font-semibold">
+                School · Roodepoort
               </div>
             </div>
           </a>
 
-          {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8" data-testid="desktop-nav">
             {NAV_LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                data-testid={`nav-${l.label.toLowerCase()}`}
-                className="font-body text-sm font-medium text-neutral-700 hover:text-neutral-950 transition-colors uppercase tracking-wider"
+                data-testid={`nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
+                className="font-body text-sm font-bold text-[#0a0a0a] hover:text-[#0a0a0a]/60 transition-colors uppercase tracking-wider"
               >
                 {l.label}
               </a>
             ))}
           </nav>
 
-          {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <a
               href={`tel:${BUSINESS.phoneTel}`}
               data-testid="header-call-link"
-              className="flex items-center gap-2 font-body text-sm font-semibold text-neutral-950 hover:text-yellow-600 transition-colors"
+              className="flex items-center gap-2 font-body text-sm font-bold text-[#0a0a0a]"
             >
-              <Phone className="w-4 h-4" strokeWidth={2.25} />
+              <Phone className="w-4 h-4" strokeWidth={2.5} />
               {BUSINESS.phone}
             </a>
             <a
-              href="#quote"
-              data-testid="header-quote-btn"
-              className="bg-yellow-400 hover:bg-yellow-300 text-neutral-950 font-body font-bold text-xs uppercase tracking-widest px-6 py-3 transition-colors"
+              href="#book"
+              data-testid="header-book-btn"
+              className="bg-[#FFD600] hover:bg-[#e5c000] text-[#0a0a0a] font-body font-bold text-xs uppercase tracking-widest px-6 py-3 border-2 border-[#0a0a0a] shadow-brutal-sm hover-lift-sm transition-all"
             >
-              Get a Quote
+              Book Lesson
             </a>
           </div>
 
-          {/* Mobile toggle */}
           <button
             data-testid="mobile-menu-toggle"
             onClick={() => setOpen(!open)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center border border-neutral-200"
+            className="lg:hidden w-10 h-10 flex items-center justify-center border-2 border-[#0a0a0a] bg-white shadow-brutal-sm"
             aria-label="Toggle menu"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -97,20 +91,16 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div
-          data-testid="mobile-menu"
-          className="lg:hidden border-t border-neutral-200 bg-white"
-        >
+        <div data-testid="mobile-menu" className="lg:hidden border-t-2 border-[#0a0a0a] bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-1">
             {NAV_LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                data-testid={`mobile-nav-${l.label.toLowerCase()}`}
-                className="font-body text-sm font-medium text-neutral-800 py-3 border-b border-neutral-100 uppercase tracking-wider"
+                data-testid={`mobile-nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
+                className="font-body text-sm font-bold py-3 border-b-2 border-[#0a0a0a]/10 uppercase tracking-wider text-[#0a0a0a]"
               >
                 {l.label}
               </a>
@@ -119,7 +109,7 @@ export const Header = () => {
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
                 data-testid="mobile-call-btn"
-                className="flex items-center justify-center gap-2 border border-neutral-300 py-3 font-body font-semibold text-sm uppercase tracking-widest"
+                className="flex items-center justify-center gap-2 border-2 border-[#0a0a0a] bg-white py-3 font-body font-bold text-sm uppercase tracking-widest shadow-brutal-sm"
               >
                 <Phone className="w-4 h-4" /> Call {BUSINESS.phone}
               </a>
@@ -128,7 +118,7 @@ export const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="mobile-whatsapp-btn"
-                className="flex items-center justify-center gap-2 bg-yellow-400 text-neutral-950 py-3 font-body font-bold text-sm uppercase tracking-widest"
+                className="flex items-center justify-center gap-2 bg-[#FFD600] text-[#0a0a0a] py-3 font-body font-bold text-sm uppercase tracking-widest border-2 border-[#0a0a0a] shadow-brutal-sm"
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp
               </a>

@@ -1,132 +1,188 @@
 import {
-  Hammer,
-  Wrench,
-  Tv,
-  Grid3x3,
-  Ruler,
-  PencilRuler,
-  Truck,
-  HardHat,
-  Sofa,
-  Zap,
-  Plug,
-  Flame,
-  Home as HomeIcon,
-  FileText,
-  Building2,
-  Paintbrush,
-  Layers,
+  GraduationCap,
+  Car,
+  ShieldCheck,
+  CheckSquare,
+  HeartHandshake,
+  CalendarCheck,
+  KeyRound,
+  Users,
+  Compass,
 } from "lucide-react";
 
 export const BUSINESS = {
-  name: "MVELO TRADING ENTERPRISE",
-  shortName: "MVELO",
-  tagline: "Reliable. Affordable. High-Quality Workmanship.",
-  rating: 4.6,
-  reviewsCount: 18,
-  address: "Mohlomi Street, Naledi, Soweto, 1865",
-  city: "Soweto, South Africa",
-  phone: "065 805 1448",
-  phoneTel: "+27658051448",
+  name: "Ray Driving School",
+  shortName: "RAY",
+  tagline: "Patient instruction. Confident drivers. Real results.",
+  description:
+    "Roodepoort's friendly, affordable driving school — guiding students from the very first lesson to a confident pass.",
+  address: "1 Goldman Street, Florida, Roodepoort, Gauteng",
+  city: "Roodepoort, Gauteng, South Africa",
+  phone: "073 403 7108",
+  phoneTel: "+27734037108",
   whatsappLink:
-    "https://wa.me/27658051448?text=Hi%20MVELO%2C%20I%27d%20like%20a%20quote%20for%20",
-  founded: "Established in Naledi",
+    "https://wa.me/27734037108?text=Hi%20Ray%20Driving%20School%2C%20I%27d%20like%20to%20book%20a%20lesson",
+  hours: [
+    { day: "Mon – Fri", open: "08:00", close: "17:00" },
+    { day: "Saturday", open: "08:30", close: "14:00" },
+    { day: "Sunday", open: "Closed", close: "" },
+  ],
 };
 
 export const SERVICES = [
-  { name: "Floor fitting", icon: Layers, desc: "Precision floor installation across all surface types." },
-  { name: "Flooring repairs", icon: Wrench, desc: "Restoring damaged floors with lasting craftsmanship." },
-  { name: "TV mounting", icon: Tv, desc: "Secure, level wall mounts with clean cable management." },
-  { name: "Tile installation", icon: Grid3x3, desc: "Bathroom, kitchen and feature wall tiling." },
-  { name: "Architectural plans", icon: Ruler, desc: "Drafted plans ready for council submission." },
-  { name: "Building design", icon: PencilRuler, desc: "Functional, modern designs tailored to your stand." },
-  { name: "Building materials supply", icon: Truck, desc: "Sourcing & delivery of quality materials." },
-  { name: "Construction projects", icon: HardHat, desc: "Full builds from foundation to finishing." },
-  { name: "Interior design & decoration", icon: Sofa, desc: "Spaces designed to live, work and breathe." },
-  { name: "Electrical installations & maintenance", icon: Zap, desc: "Certified electrical work for homes & shops." },
-  { name: "Electrical repairs", icon: Plug, desc: "Fault finding, rewiring and safety upgrades." },
-  { name: "Heating systems", icon: Flame, desc: "Geyser, underfloor and heater solutions." },
-  { name: "Home improvements", icon: HomeIcon, desc: "Targeted upgrades that lift property value." },
-  { name: "House plans", icon: FileText, desc: "Custom house plans drawn to your brief." },
-  { name: "House renovations", icon: Hammer, desc: "Reimagine your home with full renovations." },
-  { name: "Painting services", icon: Paintbrush, desc: "Interior & exterior painting with sharp finishes." },
-  { name: "Paving work", icon: Building2, desc: "Driveways, walkways and patios that last." },
+  {
+    name: "Learner's Licence Training",
+    short: "K53 theory & test prep",
+    icon: GraduationCap,
+    desc:
+      "Master road signs, rules of the road, and vehicle controls — fully prepared for your learner's test.",
+    featured: true,
+  },
+  {
+    name: "Driver's Licence Lessons",
+    short: "Code 8 — manual & automatic",
+    icon: Car,
+    desc:
+      "Structured lessons that take you from first-time driver to test-ready, at your own pace.",
+    featured: true,
+  },
+  {
+    name: "Defensive Driving",
+    short: "Stay safe on SA roads",
+    icon: ShieldCheck,
+    desc:
+      "Real-world skills to anticipate hazards, react safely, and protect yourself in any traffic.",
+  },
+  {
+    name: "Licence Test Preparation",
+    short: "Mock tests & route practice",
+    icon: CheckSquare,
+    desc:
+      "Walk through the exact yard and routes used by the testing centre until they feel routine.",
+  },
+  {
+    name: "Confidence Building",
+    short: "Beat first-time nerves",
+    icon: HeartHandshake,
+    desc:
+      "Patient one-on-one coaching to help nervous learners ease into busy roads with calm control.",
+  },
+  {
+    name: "Test Booking Assistance",
+    short: "We handle the paperwork",
+    icon: CalendarCheck,
+    desc:
+      "We assist with booking your driving test at the licensing department — minus the stress.",
+  },
+  {
+    name: "Vehicle Rental for Testing",
+    short: "Use our dual-control car",
+    icon: KeyRound,
+    desc:
+      "Take your test in the same dual-controlled vehicle you trained on. Familiar, safe, ready.",
+  },
 ];
 
-export const HERO_IMAGE =
-  "https://static.prod-images.emergentagent.com/jobs/0f86343d-aec9-41c5-83ea-01e7a26598cd/images/441381ba4ac10a7b85b26528b069d1ef2c982ef49db4c1935779501540f4fd40.png";
+export const WHY_CHOOSE = [
+  {
+    title: "One-on-One Instruction",
+    desc:
+      "No shared lessons. Every minute is yours, every drive is tailored to where you are right now.",
+    icon: Users,
+  },
+  {
+    title: "Patient & Experienced Instructors",
+    desc:
+      "Calm, friendly professionals who teach the way you learn best — never rushed, never harsh.",
+    icon: HeartHandshake,
+  },
+  {
+    title: "Dual-Controlled Vehicles",
+    desc:
+      "Brake and clutch on the instructor side. Total safety from your very first lesson onwards.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Flexible Scheduling",
+    desc:
+      "Weekday and Saturday slots that work around your job, school, or family commitments.",
+    icon: CalendarCheck,
+  },
+  {
+    title: "Local to Roodepoort",
+    desc:
+      "Based in Florida, Roodepoort. We know every test route, every yard layout, every shortcut.",
+    icon: Compass,
+  },
+  {
+    title: "Affordable & Honest Pricing",
+    desc:
+      "Friendly rates with no hidden charges. Pay per lesson, learn at your pace.",
+    icon: CheckSquare,
+  },
+];
 
-export const GALLERY = [
+export const FAQS = [
   {
-    url: "https://static.prod-images.emergentagent.com/jobs/0f86343d-aec9-41c5-83ea-01e7a26598cd/images/c9931d37fc7ddb429b43b5d147b5a514f75f9ee6b856739405e6971f7591546f.png",
-    title: "Floor Fitting",
-    tag: "FLOORING",
+    q: "Do I need a learner's licence to start driving lessons?",
+    a: "Yes. By law you must hold a valid learner's licence to drive on public roads. We offer learner's licence training to help you get yours, and you can start driving lessons the moment you pass.",
   },
   {
-    url: "https://static.prod-images.emergentagent.com/jobs/0f86343d-aec9-41c5-83ea-01e7a26598cd/images/5942e3dac54bf5853789794fdc4bd82f7b2a18ed18683c0562989f28ce798f3c.png",
-    title: "Architectural Plans",
-    tag: "DESIGN",
+    q: "Can I use your vehicle for my driving test?",
+    a: "Absolutely. We rent out our dual-controlled training vehicle for your driving test, so you take the test in a car you already know and trust.",
   },
   {
-    url: "https://images.unsplash.com/photo-1655224652169-7c7e207aa897?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBpbnRlcmlvciUyMGhvbWUlMjByZW5vdmF0aW9uJTIwdGlsZSUyMGZsb29yaW5nfGVufDB8fHx8MTc3ODI0Njc5OHww&ixlib=rb-4.1.0&q=85",
-    title: "Interior Renovation",
-    tag: "INTERIOR",
+    q: "How many lessons will I need?",
+    a: "Every learner is different. After your first lesson we'll give you an honest estimate based on your comfort behind the wheel — usually between 6 and 15 lessons for first-time drivers.",
   },
   {
-    url: "https://images.unsplash.com/photo-1778087293366-bc308530035a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBpbnRlcmlvciUyMGhvbWUlMjByZW5vdmF0aW9uJTIwdGlsZSUyMGZsb29yaW5nfGVufDB8fHx8MTc3ODI0Njc5OHww&ixlib=rb-4.1.0&q=85",
-    title: "Tile Installation",
-    tag: "TILING",
+    q: "Do you teach manual or automatic?",
+    a: "Both. Tell us your preference when booking and we'll match you with the right vehicle and instructor.",
   },
   {
-    url: "https://images.unsplash.com/photo-1699625809637-31c6f327ac96?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxjb25zdHJ1Y3Rpb24lMjB3b3JrZXJzJTIwaG91c2UlMjByZW5vdmF0aW9ufGVufDB8fHx8MTc3ODI0Njc5OHww&ixlib=rb-4.1.0&q=85",
-    title: "On-Site Build",
-    tag: "CONSTRUCTION",
+    q: "Where do you operate?",
+    a: "We're based at 1 Goldman Street, Florida, Roodepoort, and we cover the entire greater Roodepoort, West Rand and surrounding Gauteng areas.",
   },
   {
-    url: "https://static.prod-images.emergentagent.com/jobs/0f86343d-aec9-41c5-83ea-01e7a26598cd/images/33d38df824f84a920e91272f7c94653777df00a420af6354e92e6d311fa19f73.png",
-    title: "Living Space Refresh",
-    tag: "RENOVATION",
+    q: "How do I book?",
+    a: "Send us your details on the booking form, WhatsApp 073 403 7108, or call us during operating hours. We respond the same day.",
   },
 ];
 
 export const TESTIMONIALS = [
   {
-    name: "Thandi M.",
-    location: "Naledi, Soweto",
-    rating: 5,
+    name: "Nomvula T.",
+    achievement: "Passed first attempt",
     text:
-      "MVELO renovated our kitchen end-to-end. Tiling and electrical were spot on. Honest pricing, no surprises.",
-    service: "House renovation",
+      "Ray was so patient with me. I was terrified of driving, and now I drive my kids to school every day. Worth every cent.",
+    rating: 5,
   },
   {
-    name: "Sipho K.",
-    location: "Protea Glen",
-    rating: 5,
+    name: "Tebogo M.",
+    achievement: "Code 8 — Manual",
     text:
-      "Got our paving and painting done in one go. Team was on time every day and cleaned up properly.",
-    service: "Paving & painting",
+      "Started from zero. The dual-controlled car made me feel safe and the lessons were always on time. Booked my test through them too.",
+    rating: 5,
   },
   {
-    name: "Lerato D.",
-    location: "Dobsonville",
-    rating: 4,
+    name: "Aisha K.",
+    achievement: "Learner's + Driver's",
     text:
-      "Quality TV mounting and tile installation. Communication on WhatsApp made the booking easy.",
-    service: "TV mounting & tiling",
-  },
-  {
-    name: "Kabelo N.",
-    location: "Naledi, Soweto",
+      "Got my learner's and licence with Ray Driving School. Honest pricing, friendly instructors, no nonsense. Highly recommend.",
     rating: 5,
-    text:
-      "Drew up our house plans and handled the build. Reliable workmanship from start to finish.",
-    service: "House plans & build",
   },
 ];
 
+export const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1732067718116-0877f8ec29d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGRyaXZlcnxlbnwwfHx8fDE3NzgyNDg1NDh8MA&ixlib=rb-4.1.0&q=85";
+export const STEERING_IMAGE =
+  "https://images.unsplash.com/photo-1745487481703-663a531d28ab?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwzfHxzdGVlcmluZyUyMHdoZWVsJTIwaGFuZHN8ZW58MHx8fHwxNzc4MjQ4NTQ4fDA&ixlib=rb-4.1.0&q=85";
+export const LESSON_IMAGE =
+  "https://images.unsplash.com/photo-1553782097-130fef5d3e27?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwzfHxkcml2aW5nJTIwbGVzc29ufGVufDB8fHx8MTc3ODI0ODU0OHww&ixlib=rb-4.1.0&q=85";
+
 export const STATS = [
-  { value: "4.6", label: "Star rating" },
-  { value: "18", label: "Verified reviews" },
-  { value: "17", label: "Services offered" },
-  { value: "100%", label: "Soweto-based" },
+  { value: "1:1", label: "Always one-on-one" },
+  { value: "Dual", label: "Controlled vehicle" },
+  { value: "6 days", label: "Mon — Sat schedule" },
+  { value: "Local", label: "Roodepoort-based" },
 ];
