@@ -7,6 +7,7 @@ import Services from "@/components/site/Services";
 import About from "@/components/site/About";
 import WhyChoose from "@/components/site/WhyChoose";
 import Hours from "@/components/site/Hours";
+import Packages from "@/components/site/Packages";
 import Testimonials from "@/components/site/Testimonials";
 import BookLesson from "@/components/site/QuoteForm";
 import FAQ from "@/components/site/FAQ";
@@ -25,6 +26,7 @@ function App() {
         <About />
         <WhyChoose />
         <Hours />
+        <Packages />
         <Testimonials />
         <BookLesson />
         <FAQ />

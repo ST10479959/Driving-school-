@@ -5,6 +5,7 @@ import { BUSINESS } from "@/lib/constants";
 const NAV_LINKS = [
   { href: "#services", label: "Lessons" },
   { href: "#why", label: "Why Us" },
+  { href: "#packages", label: "Pricing" },
   { href: "#hours", label: "Hours" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
