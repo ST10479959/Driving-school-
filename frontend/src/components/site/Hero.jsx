@@ -83,8 +83,9 @@ export const Hero = () => {
               <div className="relative bg-white border-2 border-[#0a0a0a] overflow-hidden">
                 <img
                   src={HERO_IMAGE}
-                  alt="Confident driver"
+                  alt="Ray Driving School branded vehicle"
                   className="w-full h-[420px] sm:h-[500px] lg:h-[560px] object-cover"
+                  style={{ objectPosition: "75% 22%" }}
                 />
               </div>
               {/* Floating badge */}

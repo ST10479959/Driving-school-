@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
+import { RayMark, RayLogo } from "@/components/site/RayLogo";
 
 const NAV_LINKS = [
   { href: "#services", label: "Lessons" },
@@ -35,19 +36,8 @@ export const Header = () => {
             data-testid="logo-link"
             className="flex items-center gap-3"
           >
-            <div className="w-10 h-10 lg:w-11 lg:h-11 bg-[#7dd3fc] border-2 border-[#0a0a0a] flex items-center justify-center shadow-brutal-sm">
-              <span className="font-display font-black text-[#0a0a0a] text-lg leading-none">
-                R
-              </span>
-            </div>
-            <div className="leading-none">
-              <div className="font-display font-black text-[#0a0a0a] tracking-tight text-base lg:text-lg uppercase">
-                Ray Driving
-              </div>
-              <div className="font-body text-[10px] lg:text-[11px] tracking-[0.25em] uppercase text-[#0a0a0a]/60 font-semibold">
-                School · Roodepoort
-              </div>
-            </div>
+            <RayMark size="md" />
+            <RayLogo size="md" />
           </a>
 
           <nav className="hidden lg:flex items-center gap-8" data-testid="desktop-nav">

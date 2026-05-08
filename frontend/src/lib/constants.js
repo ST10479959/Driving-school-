@@ -174,7 +174,7 @@ export const TESTIMONIALS = [
 ];
 
 export const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1732067718116-0877f8ec29d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGRyaXZlcnxlbnwwfHx8fDE3NzgyNDg1NDh8MA&ixlib=rb-4.1.0&q=85";
+  "https://customer-assets.emergentagent.com/job_mvelo-soweto/artifacts/3uiqyen2_IMG_8224.jpeg";
 export const STEERING_IMAGE =
   "https://images.unsplash.com/photo-1745487481703-663a531d28ab?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwzfHxzdGVlcmluZyUyMHdoZWVsJTIwaGFuZHN8ZW58MHx8fHwxNzc4MjQ4NTQ4fDA&ixlib=rb-4.1.0&q=85";
 export const LESSON_IMAGE =

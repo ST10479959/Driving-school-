@@ -1,4 +1,5 @@
 import { BUSINESS, SERVICES } from "@/lib/constants";
+import { RayMark } from "@/components/site/RayLogo";
 
 export const Footer = () => {
   return (
@@ -10,13 +11,14 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 bg-[#7dd3fc] border-2 border-[#7dd3fc] flex items-center justify-center">
-                <span className="font-display font-black text-[#0a0a0a] text-lg leading-none">
-                  R
-                </span>
-              </div>
-              <div className="font-display font-black uppercase tracking-tight text-xl">
-                Ray <span className="text-[#7dd3fc]">Driving School</span>
+              <RayMark size="md" />
+              <div className="leading-none">
+                <div className="font-display font-black uppercase tracking-tight text-xl text-white">
+                  Ray Driving School
+                </div>
+                <div className="font-body text-[10px] tracking-[0.25em] uppercase text-white/50 font-bold mt-1">
+                  Florida · Roodepoort
+                </div>
               </div>
             </div>
             <p className="font-body text-sm text-white/70 max-w-sm leading-relaxed">

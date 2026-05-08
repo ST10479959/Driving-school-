@@ -106,6 +106,23 @@ export const Contact = () => {
             </div>
           </div>
         </div>
+
+        {/* Embedded Google Map */}
+        <div
+          data-testid="contact-map-embed"
+          className="mt-16 lg:mt-20 border-2 border-[#7dd3fc] shadow-[8px_8px_0_0_rgba(125,211,252,1)] overflow-hidden"
+        >
+          <iframe
+            title="Ray Driving School location"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(BUSINESS.address)}&output=embed`}
+            width="100%"
+            height="420"
+            style={{ border: 0, display: "block" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
       </div>
     </section>
   );
