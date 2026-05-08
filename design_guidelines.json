@@ -1,0 +1,97 @@
+{
+  "theme": "Light Theme",
+  "archetype": "Archetype 4 (Swiss & High-Contrast)",
+  "typography": {
+    "heading_font": "Outfit",
+    "body_font": "Manrope",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter uppercase",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-base leading-relaxed"
+    },
+    "font_imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Outfit:wght@300;500;700;900&display=swap');"
+    ]
+  },
+  "colors": {
+    "background": "bg-neutral-50",
+    "surface": "bg-white",
+    "surface_dark": "bg-neutral-950",
+    "primary_accent": "bg-yellow-400",
+    "primary_accent_hover": "bg-yellow-300",
+    "text_primary": "text-neutral-900",
+    "text_secondary": "text-neutral-600",
+    "text_on_dark": "text-white",
+    "text_on_dark_secondary": "text-neutral-400",
+    "border": "border-neutral-200",
+    "border_dark": "border-neutral-800"
+  },
+  "layout": {
+    "spacing": "Generous spacing. p-8 to p-16 for standard sections, py-24 to py-32 for major sections.",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "surface_strategies": "The Grid Borders (Technical Look) for the services grid to handle 17 items cleanly. Flat solid backgrounds for cards with sharp 1px borders, no soft shadows. Asymmetry in content blocks to build tension."
+  },
+  "media": {
+    "hero_image": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/0f86343d-aec9-41c5-83ea-01e7a26598cd/images/441381ba4ac10a7b85b26528b069d1ef2c982ef49db4c1935779501540f4fd40.png",
+      "description": "Wide-angle residential site at golden hour",
+      "category": "hero"
+    },
+    "gallery_images": [
+      {
+         "url": "https://static.prod-images.emergentagent.com/jobs/0f86343d-aec9-41c5-83ea-01e7a26598cd/images/c9931d37fc7ddb429b43b5d147b5a514f75f9ee6b856739405e6971f7591546f.png",
+         "description": "Flooring close up",
+         "category": "gallery"
+      },
+      {
+         "url": "https://static.prod-images.emergentagent.com/jobs/0f86343d-aec9-41c5-83ea-01e7a26598cd/images/5942e3dac54bf5853789794fdc4bd82f7b2a18ed18683c0562989f28ce798f3c.png",
+         "description": "Architectural plans",
+         "category": "gallery"
+      },
+      {
+         "url": "https://images.unsplash.com/photo-1655224652169-7c7e207aa897?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBpbnRlcmlvciUyMGhvbWUlMjByZW5vdmF0aW9uJTIwdGlsZSUyMGZsb29yaW5nfGVufDB8fHx8MTc3ODI0Njc5OHww&ixlib=rb-4.1.0&q=85",
+         "description": "Dining room interior",
+         "category": "gallery"
+      },
+      {
+         "url": "https://images.unsplash.com/photo-1778087293366-bc308530035a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBpbnRlcmlvciUyMGhvbWUlMjByZW5vdmF0aW9uJTIwdGlsZSUyMGZsb29yaW5nfGVufDB8fHx8MTc3ODI0Njc5OHww&ixlib=rb-4.1.0&q=85",
+         "description": "Modern bathroom tile",
+         "category": "gallery"
+      },
+      {
+         "url": "https://images.unsplash.com/photo-1699625809637-31c6f327ac96?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxjb25zdHJ1Y3Rpb24lMjB3b3JrZXJzJTIwaG91c2UlMjByZW5vdmF0aW9ufGVufDB8fHx8MTc3ODI0Njc5OHww&ixlib=rb-4.1.0&q=85",
+         "description": "Construction worker",
+         "category": "gallery"
+      },
+      {
+         "url": "https://static.prod-images.emergentagent.com/jobs/0f86343d-aec9-41c5-83ea-01e7a26598cd/images/33d38df824f84a920e91272f7c94653777df00a420af6354e92e6d311fa19f73.png",
+         "description": "Renovated living room",
+         "category": "gallery"
+      }
+    ]
+  },
+  "components": {
+    "buttons": "Sharp edges (rounded-none), flat colors. Primary button: bg-yellow-400 text-neutral-950 hover:bg-yellow-300 transition-colors uppercase tracking-widest font-bold text-sm px-8 py-4.",
+    "cards": "Sharp 1px borders (border-neutral-200), flat bg-white, no shadow. Hover state: border-neutral-900 transition-colors.",
+    "icons": "lucide-react, 2px stroke, sharp and structural. Avoid complex or overly soft icons.",
+    "services_list": "Grid Borders strategy: A tight grid container (e.g. gap-px bg-neutral-200) where children are bg-white. This naturally creates a 1px border between items. Minimalist representation of the 17 services (Icon + Label) to prevent clutter."
+  },
+  "specific_sections": {
+    "hero": "Dark overlay on hero image (bg-neutral-950/60) to ensure high contrast for stark white text and yellow accent buttons. Trust badge (4.6★ / 18 Reviews) clearly visible above or below the H1.",
+    "about": "High contrast typography. Focus on reliable, affordable, high-quality workmanship. Large, bold numbers for stats.",
+    "services": "The Grid Borders (Technical Look) grid. 17 services organized cleanly in a grid. Use hover effects to highlight cells (e.g., hover:bg-neutral-50).",
+    "testimonials": "Simple, stark quotes with bold typography.",
+    "contact": "Deep dark background (bg-neutral-950). Large, bold typography for the WhatsApp/Call CTA (065 805 1448) and Location (Mohlomi Street, Naledi, Soweto, 1865)."
+  },
+  "instructions_to_main_agent": [
+    "Install `lucide-react` for icons if not already present.",
+    "Apply `@font-face` or `@import` for Outfit and Manrope in the main CSS file.",
+    "Implement a sticky header with a solid white background and bottom border, ensuring clear navigation and a 'Get a Quote' or 'Call Now' CTA.",
+    "Hero section must use the provided hero_image with an overlay (bg-neutral-950/60) for legibility. Display the 4.6★ rating badge prominently.",
+    "The 17 services must be displayed in a dense grid (e.g. grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-neutral-200, with grid items having bg-white) for a technical 'Swiss' look.",
+    "Use stark contrasts: sections should alternate between bg-neutral-50 and bg-white, with the footer or a CTA banner in bg-neutral-950 and text-white.",
+    "Apply `data-testid` to all interactive elements."
+  ]
+}
