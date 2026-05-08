@@ -1,58 +1,50 @@
-# MVELO Trading Enterprise — Marketing Website (PRD)
+# Ray Driving School — Marketing Website (PRD)
 
 ## Original problem statement
-Create a professional business profile and promotional advertisement for a construction & home-improvement company called **MVELO TRADING ENTERPRISE** based in Naledi, Soweto, South Africa.
-- Highlight 4.6★ rating from 18 reviews; reliable, affordable, high-quality workmanship.
-- Services (17): Floor fitting, Flooring repairs, TV mounting, Tile installation, Architectural plans, Building design, Building materials supply, Construction projects, Interior design & decoration, Electrical installations & maintenance, Electrical repairs, Heating systems, Home improvements, House plans, House renovations, Painting services, Paving work.
-- Location: Mohlomi Street, Naledi, Soweto, 1865.
-- Contact: WhatsApp / Call 065 805 1448.
-- Build a website.
+Build a website for **Ray Driving School** (1 Goldman Street, Florida, Roodepoort, Gauteng).
+Phone/WhatsApp: 073 403 7108.
+Hours: Mon–Fri 08:00–17:00, Sat 08:30–14:00, Sun closed.
+Services: learner's licence training, driver's licence lessons, defensive driving, test prep, vehicle rental for testing, etc.
 
-User opted to proceed with main agent's best judgment.
+User additions over time:
+- Light-blue & white colour scheme.
+- Add the user-supplied flyer with packages (R6 000 student special, R7 000 full, R5 500 driving, R11 400 Code 14, individual lessons).
+- Replace hero with the real flyer car photo.
+- Swap plain "R" logo for colourful Ray wordmark.
+- Embed Google Maps in contact section.
+- Real testimonials (submission + admin moderation).
+- Admin page to view bookings, messages, and reviews.
 
 ## Architecture
-- **Frontend:** React 19 + Tailwind + shadcn/ui + sonner + lucide-react. Single-page, anchor-section navigation. Fonts: Outfit (display) + Manrope (body). Swiss high-contrast aesthetic (neutral-50/white/yellow-400/neutral-950).
-- **Backend:** FastAPI + Motor (MongoDB). All routes prefixed with `/api`.
-- **DB Collections:** `quote_requests`, `contact_messages`, `status_checks`.
+- **Frontend:** React 19 + react-router-dom + Tailwind + shadcn/ui + sonner + lucide-react. Routes: `/` (single-page site), `/admin` (token-gated console).
+- **Backend:** FastAPI + Motor (MongoDB). All routes under `/api`.
+- **Auth:** Simple shared-secret `ADMIN_TOKEN` in `/app/backend/.env`, sent via `X-Admin-Token` header on `/api/admin/*` endpoints.
+- **Theme:** Neo-brutalist — sky-blue (#7dd3fc) accent, Outfit + Work Sans, hard borders + offset shadows.
 
 ## API surface
-- `GET /api/` — health
-- `GET /api/business` — static business info (name, rating, address, phone, services)
-- `POST /api/quotes` — submit quote request (name, phone, service required; email/location/message optional)
-- `GET /api/quotes` — list quote requests (no admin auth — backlog item)
-- `POST /api/contact` — submit contact message
-- `GET /api/contact` — list contact messages
-- `POST/GET /api/status` — legacy status check
+Public:
+- `GET /api/`, `GET /api/business`
+- `POST /api/lessons`, `POST /api/contact`
+- `POST /api/reviews` (creates with approved=false), `GET /api/reviews` (only approved)
+- `POST /api/status`, `GET /api/status` (legacy)
 
-## User personas
-1. **Soweto homeowner** — needs a renovation/repair, wants quick WhatsApp contact and trustworthy track record (rating, reviews, address).
-2. **Property developer / landlord** — looking for full-service contractor (plans → build → finishing).
-3. **Commercial walk-in (mobile)** — wants tap-to-call/WhatsApp immediately.
+Admin (require `X-Admin-Token: ray-admin-2025`):
+- `POST /api/admin/verify`
+- `GET /api/admin/lessons`, `GET /api/admin/contact`, `GET /api/admin/reviews`
+- `POST /api/admin/reviews/{id}/approve`, `POST /api/admin/reviews/{id}/unapprove`
+- `DELETE /api/admin/reviews/{id}`
 
-## Implemented (Dec 2025)
-- Sticky header with nav, phone number, "Get a Quote" CTA + mobile menu.
-- Hero: bold typography, hero image with overlay, 4.6★/18 reviews badge, CTA cluster (Quote, WhatsApp, Call), stats sidebar with address.
-- Yellow trust marquee (animated) under hero.
-- Services: 17-card grid using "Grid Borders" technique with hover-to-dark interaction.
-- About: 5 trust points + 2x2 stats grid + dark "promise" card.
-- Gallery: 6 project images in 3-col grid borders, tag chips.
-- Reviews: 4 testimonials + 4.6★ heading.
-- Quote form (functional): React form → POST `/api/quotes` → success state. Sonner toasts for validation/success/error.
-- Contact: dark section with primary CTAs, hours, location, Google Maps deep link.
-- Footer: brand, services list (10 + view-all link), contact info.
-- Floating WhatsApp button.
-- All elements have `data-testid` attributes.
+## Sections (single-page)
+Header (sticky w/ colourful Ray wordmark) → Hero (flyer car photo) → Trust marquee → Services → About → WhyChoose → Hours → Packages (Student Special + 3 packages + individual lessons + traffic-fee notes + flyer link) → Testimonials (live from API + Share-Your-Story form) → Book a Lesson form → FAQ → Contact (with Google Maps embed) → Footer → Floating WhatsApp.
 
 ## Verification
-- Backend: 14/14 pytest tests passing (iteration_1).
-- Frontend: 12/12 behaviors verified via Playwright (iteration_2).
+- Backend: 28/28 pytest tests passing (iteration_3).
+- Frontend: All critical flows verified (review submission, admin login, approve→public flow).
 
-## Backlog / Next phase (P0 → P2)
-- **P1** Admin route to view submitted quotes/contact messages (currently endpoints are public — protect with simple JWT or API key).
-- **P1** Add rate limiting / spam protection on POST endpoints (Cloudflare Turnstile or similar).
-- **P2** Phone format validation client-side (SA mobile pattern).
-- **P2** Lead notification: forward new quotes to MVELO's WhatsApp/Email automatically (Twilio or Resend integration).
-- **P2** Replace stock testimonials with real Google reviews via API once shared.
-- **P2** SEO: structured data (LocalBusiness schema), sitemap.xml, robots.txt.
-- **P2** Service detail pages or modals with pricing ranges.
-- **P3** Multi-language (Zulu/Sotho) toggle for local accessibility.
+## Backlog / Next phase
+- **P1** Email/WhatsApp notification when a new booking or review is submitted (Resend or Twilio integration).
+- **P1** Replace shared-secret admin with proper auth (Emergent Google OAuth) so the school owner just signs in with Google.
+- **P2** SEO: LocalBusiness schema, sitemap.xml, robots.txt.
+- **P2** Image carousel of training photos in About section.
+- **P2** "Booked sessions" calendar view for admin.
+- **P3** Multi-language (Zulu/Sotho) toggle.

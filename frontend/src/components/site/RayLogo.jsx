@@ -19,8 +19,8 @@ export const RayLogo = ({ size = "md", showSubtitle = true, className = "" }) =>
   ];
 
   return (
-    <div className={`leading-none ${className}`}>
-      <div className={`flex items-baseline gap-0.5 font-display font-black tracking-tight ${s.letter} uppercase`}>
+    <div className={`leading-none ${className}`} aria-label="Ray Driving School">
+      <div className={`flex items-baseline gap-0.5 font-display font-black tracking-tight ${s.letter} uppercase`} aria-hidden="true">
         {letters.map((l, i) => (
           <span
             key={i}
