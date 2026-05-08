@@ -18,7 +18,7 @@ export const FAQ = () => {
           >
             Frequently asked.
             <br />
-            <span className="bg-[#FFD600] border-2 border-[#0a0a0a] px-3 inline-block">
+            <span className="bg-[#7dd3fc] border-2 border-[#0a0a0a] px-3 inline-block">
               Honestly answered.
             </span>
           </h2>
@@ -33,7 +33,7 @@ export const FAQ = () => {
                 key={i}
                 data-testid={`faq-item-${i}`}
                 className={`border-2 border-[#0a0a0a] transition-all ${
-                  isOpen ? "bg-[#FFD600] shadow-brutal-sm" : "bg-white"
+                  isOpen ? "bg-[#7dd3fc] shadow-brutal-sm" : "bg-white"
                 }`}
               >
                 <button

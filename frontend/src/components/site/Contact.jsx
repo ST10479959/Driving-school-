@@ -9,7 +9,7 @@ export const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <p className="font-body text-xs uppercase tracking-[0.3em] font-bold text-[#FFD600] mb-4">
+            <p className="font-body text-xs uppercase tracking-[0.3em] font-bold text-[#7dd3fc] mb-4">
               / Get in touch
             </p>
             <h2
@@ -18,7 +18,7 @@ export const Contact = () => {
             >
               Ready to drive?
               <br />
-              <span className="text-[#FFD600]">Let's start.</span>
+              <span className="text-[#7dd3fc]">Let's start.</span>
             </h2>
             <p className="mt-8 font-body text-base lg:text-lg text-white/70 max-w-xl leading-relaxed">
               Same-day responses on calls and WhatsApp during operating hours.
@@ -29,7 +29,7 @@ export const Contact = () => {
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
                 data-testid="contact-call-btn"
-                className="group flex items-center justify-between gap-4 bg-[#FFD600] hover:bg-white text-[#0a0a0a] px-6 py-5 border-2 border-[#FFD600] hover:border-white transition-colors"
+                className="group flex items-center justify-between gap-4 bg-[#7dd3fc] hover:bg-white text-[#0a0a0a] px-6 py-5 border-2 border-[#7dd3fc] hover:border-white transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5" strokeWidth={2.5} />
@@ -49,7 +49,7 @@ export const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="contact-whatsapp-btn"
-                className="group flex items-center justify-between gap-4 bg-white text-[#0a0a0a] px-6 py-5 border-2 border-white hover:bg-[#FFD600] hover:border-[#FFD600] transition-colors"
+                className="group flex items-center justify-between gap-4 bg-white text-[#0a0a0a] px-6 py-5 border-2 border-white hover:bg-[#7dd3fc] hover:border-[#7dd3fc] transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
@@ -99,7 +99,7 @@ export const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="contact-map-link"
-                className="inline-flex items-center gap-2 font-body text-sm text-[#FFD600] hover:text-white transition-colors font-bold"
+                className="inline-flex items-center gap-2 font-body text-sm text-[#7dd3fc] hover:text-white transition-colors font-bold"
               >
                 Open in Google Maps <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
               </a>
@@ -113,7 +113,7 @@ export const Contact = () => {
 
 const ContactItem = ({ icon: Icon, label, primary, secondary, testId }) => (
   <li className="flex items-start gap-4" data-testid={testId}>
-    <div className="w-10 h-10 flex items-center justify-center bg-[#FFD600] border-2 border-[#FFD600] flex-shrink-0">
+    <div className="w-10 h-10 flex items-center justify-center bg-[#7dd3fc] border-2 border-[#7dd3fc] flex-shrink-0">
       <Icon className="w-4 h-4 text-[#0a0a0a]" strokeWidth={2.5} />
     </div>
     <div>

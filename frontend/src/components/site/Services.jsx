@@ -16,7 +16,7 @@ export const Services = () => {
             >
               From your first
               <br />
-              <span className="bg-[#FFD600] border-2 border-[#0a0a0a] px-3 inline-block">
+              <span className="bg-[#7dd3fc] border-2 border-[#0a0a0a] px-3 inline-block">
                 K53 page
               </span>
               <br />
@@ -44,14 +44,14 @@ export const Services = () => {
                 data-testid={`service-card-${idx}`}
                 className={`group relative border-2 border-[#0a0a0a] shadow-brutal hover-lift transition-all p-7 lg:p-8 flex flex-col justify-between ${
                   featured
-                    ? "bg-[#FFD600] md:col-span-2 lg:col-span-1 lg:row-span-1 min-h-[260px]"
+                    ? "bg-[#7dd3fc] md:col-span-2 lg:col-span-1 lg:row-span-1 min-h-[260px]"
                     : "bg-white min-h-[220px]"
                 }`}
               >
                 <div className="flex items-start justify-between">
                   <div
                     className={`w-12 h-12 flex items-center justify-center border-2 border-[#0a0a0a] ${
-                      featured ? "bg-white" : "bg-[#FFD600]"
+                      featured ? "bg-white" : "bg-[#7dd3fc]"
                     }`}
                   >
                     <Icon className="w-5 h-5 text-[#0a0a0a]" strokeWidth={2.5} />

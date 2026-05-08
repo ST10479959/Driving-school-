@@ -24,7 +24,7 @@ export const Header = () => {
     <header
       data-testid="site-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all bg-white border-b-2 border-[#0a0a0a] ${
-        scrolled ? "shadow-[0_4px_0_0_rgba(255,214,0,1)]" : ""
+        scrolled ? "shadow-[0_4px_0_0_rgba(125,211,252,1)]" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +34,7 @@ export const Header = () => {
             data-testid="logo-link"
             className="flex items-center gap-3"
           >
-            <div className="w-10 h-10 lg:w-11 lg:h-11 bg-[#FFD600] border-2 border-[#0a0a0a] flex items-center justify-center shadow-brutal-sm">
+            <div className="w-10 h-10 lg:w-11 lg:h-11 bg-[#7dd3fc] border-2 border-[#0a0a0a] flex items-center justify-center shadow-brutal-sm">
               <span className="font-display font-black text-[#0a0a0a] text-lg leading-none">
                 R
               </span>
@@ -74,7 +74,7 @@ export const Header = () => {
             <a
               href="#book"
               data-testid="header-book-btn"
-              className="bg-[#FFD600] hover:bg-[#e5c000] text-[#0a0a0a] font-body font-bold text-xs uppercase tracking-widest px-6 py-3 border-2 border-[#0a0a0a] shadow-brutal-sm hover-lift-sm transition-all"
+              className="bg-[#7dd3fc] hover:bg-[#38bdf8] text-[#0a0a0a] font-body font-bold text-xs uppercase tracking-widest px-6 py-3 border-2 border-[#0a0a0a] shadow-brutal-sm hover-lift-sm transition-all"
             >
               Book Lesson
             </a>
@@ -118,7 +118,7 @@ export const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="mobile-whatsapp-btn"
-                className="flex items-center justify-center gap-2 bg-[#FFD600] text-[#0a0a0a] py-3 font-body font-bold text-sm uppercase tracking-widest border-2 border-[#0a0a0a] shadow-brutal-sm"
+                className="flex items-center justify-center gap-2 bg-[#7dd3fc] text-[#0a0a0a] py-3 font-body font-bold text-sm uppercase tracking-widest border-2 border-[#0a0a0a] shadow-brutal-sm"
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp
               </a>

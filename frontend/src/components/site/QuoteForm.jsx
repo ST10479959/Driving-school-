@@ -110,7 +110,7 @@ export const BookLesson = () => {
             >
               Tell us where
               <br />
-              <span className="bg-[#FFD600] border-2 border-[#0a0a0a] px-3 inline-block">
+              <span className="bg-[#7dd3fc] border-2 border-[#0a0a0a] px-3 inline-block">
                 you're starting
               </span>
               <br />
@@ -138,7 +138,7 @@ export const BookLesson = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="book-side-whatsapp"
-                className="mt-3 inline-flex items-center gap-2 font-body text-xs uppercase tracking-[0.2em] font-bold text-[#0a0a0a] underline underline-offset-4 decoration-[#FFD600] decoration-[3px]"
+                className="mt-3 inline-flex items-center gap-2 font-body text-xs uppercase tracking-[0.2em] font-bold text-[#0a0a0a] underline underline-offset-4 decoration-[#7dd3fc] decoration-[3px]"
               >
                 Or message on WhatsApp <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.5} />
               </a>
@@ -149,7 +149,7 @@ export const BookLesson = () => {
             {submitted ? (
               <div
                 data-testid="book-success"
-                className="bg-[#FFD600] border-2 border-[#0a0a0a] shadow-brutal p-10 lg:p-14"
+                className="bg-[#7dd3fc] border-2 border-[#0a0a0a] shadow-brutal p-10 lg:p-14"
               >
                 <div className="w-16 h-16 bg-white border-2 border-[#0a0a0a] flex items-center justify-center mb-6">
                   <GraduationCap className="w-8 h-8 text-[#0a0a0a]" strokeWidth={2.5} />
@@ -252,7 +252,7 @@ export const BookLesson = () => {
                       value={form.message}
                       onChange={update("message")}
                       placeholder="Test date already booked? Specific concerns? Tell us..."
-                      className="w-full bg-[#fafafa] border-2 border-[#0a0a0a] px-4 py-3 font-body text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#FFD600] focus:ring-offset-0 transition-colors"
+                      className="w-full bg-[#fafafa] border-2 border-[#0a0a0a] px-4 py-3 font-body text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#7dd3fc] focus:ring-offset-0 transition-colors"
                     />
                   </div>
                 </div>
@@ -262,7 +262,7 @@ export const BookLesson = () => {
                     type="submit"
                     disabled={loading}
                     data-testid="submit-book-btn"
-                    className="inline-flex items-center justify-center gap-3 bg-[#FFD600] hover:bg-[#e5c000] disabled:opacity-60 disabled:cursor-not-allowed text-[#0a0a0a] font-body font-bold text-sm uppercase tracking-widest px-10 py-4 border-2 border-[#0a0a0a] shadow-brutal-sm hover-lift-sm transition-all"
+                    className="inline-flex items-center justify-center gap-3 bg-[#7dd3fc] hover:bg-[#38bdf8] disabled:opacity-60 disabled:cursor-not-allowed text-[#0a0a0a] font-body font-bold text-sm uppercase tracking-widest px-10 py-4 border-2 border-[#0a0a0a] shadow-brutal-sm hover-lift-sm transition-all"
                   >
                     {loading ? (
                       <>
@@ -303,7 +303,7 @@ const Field = ({ label, testId, value, onChange, placeholder, type = "text" }) =
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="w-full bg-[#fafafa] border-2 border-[#0a0a0a] px-4 h-12 font-body text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#FFD600] focus:ring-offset-0 transition-colors"
+      className="w-full bg-[#fafafa] border-2 border-[#0a0a0a] px-4 h-12 font-body text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#7dd3fc] focus:ring-offset-0 transition-colors"
     />
   </div>
 );
@@ -317,7 +317,7 @@ const BrutalSelect = ({ label, testId, value, onValueChange, options, placeholde
       <SelectTrigger
         id={testId}
         data-testid={testId}
-        className="w-full bg-[#fafafa] rounded-none border-2 border-[#0a0a0a] h-12 font-body text-sm font-medium focus:ring-2 focus:ring-[#FFD600] focus:ring-offset-0 hover:bg-white transition-colors"
+        className="w-full bg-[#fafafa] rounded-none border-2 border-[#0a0a0a] h-12 font-body text-sm font-medium focus:ring-2 focus:ring-[#7dd3fc] focus:ring-offset-0 hover:bg-white transition-colors"
       >
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>

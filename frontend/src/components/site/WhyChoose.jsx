@@ -14,7 +14,7 @@ export const WhyChoose = () => {
           >
             We're built around
             <br />
-            <span className="bg-[#FFD600] border-2 border-[#0a0a0a] px-3 inline-block">
+            <span className="bg-[#7dd3fc] border-2 border-[#0a0a0a] px-3 inline-block">
               one student at a time.
             </span>
           </h2>
@@ -29,7 +29,7 @@ export const WhyChoose = () => {
                 data-testid={`why-card-${i}`}
                 className="bg-white border-2 border-[#0a0a0a] shadow-brutal-sm hover-lift-sm transition-all p-6 lg:p-7"
               >
-                <div className="w-14 h-14 flex items-center justify-center bg-[#FFD600] border-2 border-[#0a0a0a]">
+                <div className="w-14 h-14 flex items-center justify-center bg-[#7dd3fc] border-2 border-[#0a0a0a]">
                   <Icon className="w-6 h-6 text-[#0a0a0a]" strokeWidth={2.5} />
                 </div>
                 <h3 className="mt-5 font-display font-bold text-xl text-[#0a0a0a] tracking-tight leading-tight">

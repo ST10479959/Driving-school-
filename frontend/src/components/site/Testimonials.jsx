@@ -15,7 +15,7 @@ export const Testimonials = () => {
           >
             Real learners.
             <br />
-            <span className="bg-[#FFD600] border-2 border-[#0a0a0a] px-3 inline-block">
+            <span className="bg-[#7dd3fc] border-2 border-[#0a0a0a] px-3 inline-block">
               Real licences.
             </span>
           </h2>
@@ -34,7 +34,7 @@ export const Testimonials = () => {
                     <Star
                       key={idx}
                       className={`w-4 h-4 ${
-                        idx < t.rating ? "text-[#FFD600] fill-[#FFD600]" : "text-[#0a0a0a]/20"
+                        idx < t.rating ? "text-[#7dd3fc] fill-[#7dd3fc]" : "text-[#0a0a0a]/20"
                       }`}
                       strokeWidth={1.5}
                     />
@@ -48,7 +48,7 @@ export const Testimonials = () => {
                 <span className="font-body font-bold text-sm text-[#0a0a0a]">
                   {t.name}
                 </span>
-                <span className="font-body text-[10px] uppercase tracking-[0.2em] font-bold text-[#0a0a0a]/60 bg-[#FFD600]/40 px-2 py-1 border border-[#0a0a0a]">
+                <span className="font-body text-[10px] uppercase tracking-[0.2em] font-bold text-[#0a0a0a]/60 bg-[#7dd3fc]/40 px-2 py-1 border border-[#0a0a0a]">
                   {t.achievement}
                 </span>
               </div>

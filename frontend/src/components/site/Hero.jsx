@@ -17,7 +17,7 @@ export const Hero = () => {
           <div className="lg:col-span-7">
             <div
               data-testid="hero-eyebrow"
-              className="inline-flex items-center gap-2 bg-[#FFD600] border-2 border-[#0a0a0a] px-4 py-2 shadow-brutal-sm mb-6"
+              className="inline-flex items-center gap-2 bg-[#7dd3fc] border-2 border-[#0a0a0a] px-4 py-2 shadow-brutal-sm mb-6"
             >
               <MapPin className="w-3.5 h-3.5" strokeWidth={2.5} />
               <span className="font-body text-[11px] uppercase tracking-[0.25em] font-bold text-[#0a0a0a]">
@@ -31,7 +31,7 @@ export const Hero = () => {
             >
               Learn to drive
               <br />
-              <span className="bg-[#FFD600] px-3 inline-block border-2 border-[#0a0a0a] -rotate-1 my-1">
+              <span className="bg-[#7dd3fc] px-3 inline-block border-2 border-[#0a0a0a] -rotate-1 my-1">
                 with patience.
               </span>
               <br />
@@ -49,7 +49,7 @@ export const Hero = () => {
               <a
                 href="#book"
                 data-testid="hero-book-btn"
-                className="group inline-flex items-center justify-center gap-3 bg-[#FFD600] hover:bg-[#e5c000] text-[#0a0a0a] font-body font-bold text-sm uppercase tracking-widest px-8 py-5 border-2 border-[#0a0a0a] shadow-brutal hover-lift transition-all"
+                className="group inline-flex items-center justify-center gap-3 bg-[#7dd3fc] hover:bg-[#38bdf8] text-[#0a0a0a] font-body font-bold text-sm uppercase tracking-widest px-8 py-5 border-2 border-[#0a0a0a] shadow-brutal hover-lift transition-all"
               >
                 Book Your First Lesson
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -68,7 +68,7 @@ export const Hero = () => {
             <a
               href={`tel:${BUSINESS.phoneTel}`}
               data-testid="hero-call-btn"
-              className="mt-6 inline-flex items-center gap-2 font-body text-sm font-bold text-[#0a0a0a] hover:text-[#0a0a0a]/60 underline underline-offset-4 decoration-[#FFD600] decoration-[3px]"
+              className="mt-6 inline-flex items-center gap-2 font-body text-sm font-bold text-[#0a0a0a] hover:text-[#0a0a0a]/60 underline underline-offset-4 decoration-[#7dd3fc] decoration-[3px]"
             >
               <Phone className="w-4 h-4" strokeWidth={2.5} /> Or call {BUSINESS.phone}
             </a>
@@ -78,7 +78,7 @@ export const Hero = () => {
           <div className="lg:col-span-5">
             <div className="relative">
               {/* Yellow back card */}
-              <div className="absolute inset-0 translate-x-3 translate-y-3 bg-[#FFD600] border-2 border-[#0a0a0a]" aria-hidden="true" />
+              <div className="absolute inset-0 translate-x-3 translate-y-3 bg-[#7dd3fc] border-2 border-[#0a0a0a]" aria-hidden="true" />
               {/* Image */}
               <div className="relative bg-white border-2 border-[#0a0a0a] overflow-hidden">
                 <img
@@ -94,7 +94,7 @@ export const Hero = () => {
               >
                 <div className="flex items-center gap-1 mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#FFD600] text-[#FFD600]" strokeWidth={1.5} />
+                    <Star key={i} className="w-3.5 h-3.5 fill-[#7dd3fc] text-[#7dd3fc]" strokeWidth={1.5} />
                   ))}
                 </div>
                 <p className="font-display font-bold text-sm text-[#0a0a0a] leading-tight">

@@ -13,7 +13,7 @@ export const TrustMarquee = () => {
   const all = [...items, ...items];
 
   return (
-    <div data-testid="trust-marquee" className="bg-[#0a0a0a] text-[#FFD600] border-y-2 border-[#0a0a0a] overflow-hidden">
+    <div data-testid="trust-marquee" className="bg-[#0a0a0a] text-[#7dd3fc] border-y-2 border-[#0a0a0a] overflow-hidden">
       <div className="marquee-track flex whitespace-nowrap py-4">
         {all.map((it, i) => (
           <span
@@ -21,7 +21,7 @@ export const TrustMarquee = () => {
             className="font-display font-black uppercase tracking-tight text-sm sm:text-base mx-6 inline-flex items-center"
           >
             {it}
-            <span className="mx-6 inline-block w-2 h-2 bg-[#FFD600] rotate-45" aria-hidden="true" />
+            <span className="mx-6 inline-block w-2 h-2 bg-[#7dd3fc] rotate-45" aria-hidden="true" />
           </span>
         ))}
       </div>

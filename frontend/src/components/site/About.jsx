@@ -17,7 +17,7 @@ export const About = () => {
           {/* Image side */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative">
-              <div className="absolute inset-0 -translate-x-3 -translate-y-3 bg-[#FFD600] border-2 border-[#0a0a0a]" aria-hidden="true" />
+              <div className="absolute inset-0 -translate-x-3 -translate-y-3 bg-[#7dd3fc] border-2 border-[#0a0a0a]" aria-hidden="true" />
               <div className="relative border-2 border-[#0a0a0a] overflow-hidden bg-white">
                 <img
                   src={LESSON_IMAGE}
@@ -27,7 +27,7 @@ export const About = () => {
               </div>
               {/* Stat plate */}
               <div className="absolute -right-4 sm:-right-6 -bottom-6 bg-[#0a0a0a] text-white border-2 border-[#0a0a0a] shadow-brutal-sm p-5 max-w-[200px]">
-                <div className="font-display font-black text-3xl text-[#FFD600] leading-none">
+                <div className="font-display font-black text-3xl text-[#7dd3fc] leading-none">
                   100%
                 </div>
                 <p className="font-body text-[11px] uppercase tracking-[0.2em] font-bold mt-2">
@@ -48,7 +48,7 @@ export const About = () => {
             >
               Friendly. Affordable.
               <br />
-              <span className="bg-[#FFD600] border-2 border-[#0a0a0a] px-3 inline-block">
+              <span className="bg-[#7dd3fc] border-2 border-[#0a0a0a] px-3 inline-block">
                 Truly customer-focused.
               </span>
             </h2>
@@ -70,7 +70,7 @@ export const About = () => {
             <ul className="mt-10 space-y-3" data-testid="about-points">
               {POINTS.map((p, i) => (
                 <li key={i} className="flex items-start gap-3 font-body text-sm font-medium text-[#0a0a0a]">
-                  <CheckCircle2 className="w-5 h-5 text-[#FFD600] flex-shrink-0 mt-0.5" strokeWidth={3} />
+                  <CheckCircle2 className="w-5 h-5 text-[#7dd3fc] flex-shrink-0 mt-0.5" strokeWidth={3} />
                   <span>{p}</span>
                 </li>
               ))}
